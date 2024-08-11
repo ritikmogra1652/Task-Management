@@ -1,0 +1,84 @@
+.task-list {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    
+  }
+  
+  .task-list h3 {
+    font-size: 1.5rem;
+    margin: 20px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    color: #333;
+  }
+  .task-container{
+    border: 1px solid black;
+    border-radius: 5px;
+
+  }
+  .task-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .task-list ul button{
+    width: 50%;
+    margin: 5px 25%;
+    border-radius: 5px;
+
+  }
+
+  
+  .task-list li {
+    margin-bottom: 15px;
+    padding: 15px;
+    /* border-radius: 5px; */
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+    transition: background-color 0.3s ease;
+  }
+  
+  .task-list li:hover {
+    opacity: 0.9;
+  }
+  
+  .task-list li h4 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+  
+  .task-list li p {
+    margin: 10px 0;
+  }
+  
+  .task-list li small {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  .priority-high {
+    background-color: #ff4d4d; /* Red for high priority */
+    border-left-color: #cc0000; /* Darker red border */
+    border-radius: 5px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+  .priority-medium {
+    background-color: #ffa500; /* Orange for medium priority */
+    border-left-color: #cc8400; /* Darker orange border */
+    border-radius: 5px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .priority-low {
+    background-color: #90ee90; /* Green for low priority */
+    border-left-color: #66cc66; /* Darker green border */
+    border-radius: 5px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
