@@ -3,7 +3,6 @@ import { TaskStatus, TaskPriority } from './TaskModel';
 import './TaskList.css';
 
 function TaskList({ tasks, onTaskClick,onDeleteTask }) {
-console.log(tasks);
 
   const getPriorityClass = (priority) => {
     switch (priority) {
@@ -37,24 +36,66 @@ console.log(tasks);
         <div key={status}>
           <h3 className={getStatusClass(status)}>{status}</h3>
           <ul>
-            {tasks.filter(task => task.status === status).map((task, index) => (
-                <div className={getPriorityClass(task.priority)}>
-                    <li key={index}  
-                        onClick={() => {onTaskClick(task)}}
-                        >
-                        <h4>{task.title}</h4>
-                        <p>{task.description}</p>
-                        <small>Created: {task.creationDate}</small>
-                        {task.completionDate && <small>Completed: {task.completionDate}</small>}
-                    </li>
-                    <button onClick={() => onDeleteTask(index)}>Delete</button>
-                </div>
-              
-            ))}
-          </ul>
+        {tasks
+          .map((task, Index) => ({ task, Index }))
+          .filter(({ task }) => task.status === status)
+          .map(({ task, Index }) => (
+            <div key={Index} className={getPriorityClass(task.priority)}>
+              <li
+                onClick={() => {
+                  onTaskClick(task);
+                }}
+              >
+                <h4>{task.title}</h4>
+                <p>{task.description}</p>
+                <small>Created: {task.creationDate}</small>
+                {task.completionDate && (
+                  <small>Completed: {task.completionDate}</small>
+                )}
+              </li>
+              <button onClick={() => onDeleteTask(Index)}>
+                Delete
+              </button>
+            </div>
+          ))}
+      </ul>
         </div>
       ))}
     </div>
+
+  //   <div className="task-list">
+  //   {Object.values(TaskStatus).map((status) => (
+  //     <div key={status}>
+  //       <h3 className={getStatusClass(status)}>{status}</h3>
+  //       <ul>
+  //         {tasks
+  //           .map((task, originalIndex) => ({ task, originalIndex }))
+  //           .filter(({ task }) => task.status === status)
+  //           .map(({ task, originalIndex }) => (
+  //             <div key={originalIndex} className={getPriorityClass(task.priority)}>
+  //               <li
+  //                 onClick={() => {
+  //                   onTaskClick(task);
+  //                 }}
+  //               >
+  //                 <h4>{task.title}</h4>
+  //                 <p>{task.description}</p>
+  //                 <small>Created: {task.creationDate}</small>
+  //                 {task.completionDate && (
+  //                   <small>Completed: {task.completionDate}</small>
+  //                 )}
+  //               </li>
+  //               <button onClick={() => onDeleteTask(originalIndex)}>
+  //                 Delete
+  //               </button>
+  //             </div>
+  //           ))}
+  //       </ul>
+  //     </div>
+  //   ))}
+  // </div>
+  
+
   );
 }
 

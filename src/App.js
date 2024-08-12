@@ -8,12 +8,14 @@ function App() {
   const [selectedTask, setSelectedTask] = useState(null);
   const [isModalOpen, setModalOpen] = useState(false);
   const [isFormOpen, setFormOpen] = useState(false);
+  
   useEffect(() => {
     const storedTasks = localStorage.getItem('tasks');
     if (storedTasks) {
       setTasks(JSON.parse(storedTasks));
     }
   }, []);
+
   const saveTasksToLocalStorage = (tasks) => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   };

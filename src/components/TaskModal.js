@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { TaskPriority, TaskStatus } from './TaskModel';
 import './TaskModal.css';
 
-function TaskModal({ task, isOpen, onClose, onSave, isNewTask }) {
+function  TaskModal({ task, isOpen, onClose, onSave, isNewTask }) {
   const [updatedTask, setUpdatedTask] = useState({
     priority: TaskPriority.LOW,
     status: TaskStatus.NEW,
